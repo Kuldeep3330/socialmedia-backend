@@ -1,11 +1,8 @@
-import 'dotenv/config'
+import dotenv from "dotenv"
+import { connectDB } from "./db/index.js"
 
-import {app} from './app.js'
-
-app.get('/', (req, res)=>{
-    res.send("Hello World!")
+dotenv.config({
+    path: './.env'
 })
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`listening on PORT ${process.env.PORT}`);
-})
+connectDB()
